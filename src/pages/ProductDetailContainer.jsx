@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { api, apiUrl, endpoints } from "../utils/api";
 import ProductDetail from "../components/ProductDetail";
 import axios from "axios";
 
 export default function ProductDetailContainer() {
+  console.log([api, apiUrl, endpoints])
   let [equipos, setEquipos] = useState([]);
   //SI ESTUVIESE USANDO EN VEZ DE UNA VARIABLE LOCAL UN ESTADO, SE RE-RENDERIZARÍA.
   async function getData() {
     try {
-      let { data } = await axios("http://localhost:8080/api/equipos/read");
+      let { data } = await api.get(apiUrl + endpoints.read_equipos);
       setEquipos(data);
     } catch (error) {
       console.log(error);
