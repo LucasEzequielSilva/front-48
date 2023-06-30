@@ -1,11 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
-import ProductDetailContainer from "../pages/ProductDetailContainer";
-import Layout from "../layout/Layout";
-import ProductDetail from "../pages/ProductDetail";
-
+import { Layout, SignUp, SignIn, ProductDetailContainer, ProductDetail } from './index'
+import ProtectedRoute from "./ProtectedRoute";
 const router = createBrowserRouter([
     {
         path:"/",
@@ -17,11 +12,17 @@ const router = createBrowserRouter([
             },
             {
                 path:'/signup',
-                element: <SignUp/>
+                element: (
+                    <ProtectedRoute>
+                        <SignUp/>
+                    </ProtectedRoute>)
             },
             {
                 path:'/signin',
-                element: <SignIn/>
+                element: (
+                    <ProtectedRoute>
+                <SignIn/>
+                    </ProtectedRoute>)
             },
             {
                 path:'/equipos',

@@ -1,7 +1,24 @@
+import { useRef } from "react";
+import { api, apiUrl, endpoints } from "../utils/api";
 export default function SignIn() {
+    let inputEmail = useRef("")
+    let inputPassword = useRef("")
+    async function handleFormSubmit(event){
+        event.preventDefault()
+        let datos = {
+            email: inputEmail.current.value,
+            contraseña: inputPassword.current.value
+        }
+        try {
+            let {data} = await api.post(apiUrl + endpoints.sign_in, datos)
+            console.log(data)
+        } catch (error) {
+            console.log(error)            
+        }
+    }
   return (
     <>
-         <div className="flex min-h-screen flex-col justify-center items-center px-6 py-12 lg:px-8 bg-[#f7f7f7]">
+        <div className="flex min-h-screen flex-col justify-center items-center px-6 py-12 lg:px-8 bg-[#f7f7f7]">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
                 className="mx-auto h-10 w-auto"
@@ -14,11 +31,13 @@ export default function SignIn() {
             </div>
             <div className="w-1/2 min-h-1/2 p-8">
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-            <form 
+            <form
+            onSubmit={handleFormSubmit}
             className="space-y-6 focus:outline-none focus:border-none focus:ring-0" action="#" method="POST">
 
                 <div className="h-fit rounded-lg w-full flex flex-col bg-white border border-gray-300 shadow-sm">
                     <input
+                    ref={inputEmail}
                     id="email"
                     name="email"
                     type="email"
@@ -29,6 +48,7 @@ export default function SignIn() {
                     />
                     <hr className="border-gray-200" />
                     <input
+                    ref={inputPassword}
                     id="password"
                     name="password"
                     type="password"
@@ -67,7 +87,7 @@ export default function SignIn() {
             </p>
             </div>
         </div>
-      </div>
+        </div>
     </>
   );
   }
