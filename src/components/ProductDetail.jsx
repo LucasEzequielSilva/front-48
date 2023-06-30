@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link as Anchor} from 'react-router-dom'
 
 export default function ProductDetail({team}) {
   return (
@@ -14,11 +15,12 @@ export default function ProductDetail({team}) {
             <p className="text-sm font-medium text-secondary">
               {team.primary_color}
             </p>
-            <button
+            <Anchor
+              to={`detail/${team.id}`}
               className="border rounded-sm shadow p-4 text-white bg-blue-500 px-8"
             >
-              Cambiar
-            </button>
+              Ver mas
+            </Anchor>
           </div>
         </div>
       </>
