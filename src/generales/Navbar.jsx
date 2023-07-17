@@ -13,6 +13,9 @@ export default function Navbar() {
         <Anchor to="/" className='hover:bg-black/5 px-4 py-2 hover:text-black/80 rounded'>
           Home
         </Anchor>
+        <Anchor to="/mangas" className='hover:bg-black/5 px-4 py-2 hover:text-black/80 rounded'>
+          Mangas
+        </Anchor>
         <Anchor to="/equipos" className='hover:bg-black/5 px-4 py-2 hover:text-black/80 rounded'>
           Equipos
         </Anchor>
