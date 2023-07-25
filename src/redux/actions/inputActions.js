@@ -1,6 +1,6 @@
 import { createAction } from "@reduxjs/toolkit"
 const capture_text = createAction(
-'capture_text' ,
+'capture_text',
 (obj) => {
 return {
 payload: {

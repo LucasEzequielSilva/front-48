@@ -8,9 +8,8 @@ const initialState = {
     select: '' 
 }
 
-const inputReducer = createReducer(initialState, (builder) => builder.addCase(capture_text, (state, action)=>{
-    console.log(state);
-    console.log(action);
+const inputReducer = createReducer(initialState, (builder) => builder
+.addCase(capture_text, (state, action)=>{
     let newState = {
         ...state,
         text: action.payload.text

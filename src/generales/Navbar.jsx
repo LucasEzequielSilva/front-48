@@ -17,7 +17,7 @@ export default function Navbar() {
           Mangas
         </Anchor>
         <Anchor to="/equipos" className='hover:bg-black/5 px-4 py-2 hover:text-black/80 rounded'>
-          Equipos
+          Plantas
         </Anchor>
         <Anchor to="/signin" className='hover:bg-black/5 px-4 py-2 hover:text-black/80 rounded'>
           Sign In
